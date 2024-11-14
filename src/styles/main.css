@@ -1,0 +1,391 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.jumbotron {
+  width: 100%;
+}
+
+figure {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+figure img {
+  width: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:rgba(63, 60, 57, 0.963);
+  color: white;
+  padding-inline: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.app-logo {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+#drawer {
+  width: 250px;
+  height: 100%;
+  position: fixed; /* Menggunakan fixed untuk tetap di layar */
+  top: 0; /* Menempatkan drawer di atas */
+  right: -250px; /* Menyembunyikan drawer di luar layar */
+  transition: right 0.3s ease-in-out; /* Transisi saat drawer bergerak */
+  background-color: rgba(233, 183, 143, 0.963);
+  text-align: center;
+}
+
+#drawer.open {
+  right: 0; /* Tampilkan drawer di dalam layar */
+}
+
+#drawer ul {
+  list-style-type: none;
+  padding: 0 16px;
+}
+
+#drawer li {
+  padding: 5px 0px;
+}
+
+#drawer a {
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+}
+
+#hamburger {
+  font-size: 32px;
+  text-decoration: none;
+  color: black;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px; /* Memberikan margin untuk menghindari konten tertutup oleh header */
+}
+
+#maincontent {
+  margin-block-start: 30px;
+  margin-block-end: 15px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#daftar-restoran {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Auto-fill grid layout */
+  gap: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+.restaurant-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  cursor: pointer;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.restaurant-card:hover {
+  transform: scale(1.05);
+}
+
+.restaurant-card h2 {
+  font-size: 1.2em;
+  margin: 12px 0;
+  text-align: center;
+}
+
+.restaurant-card p {
+  font-size: 0.9em;
+  color: #666;
+  text-align: center;
+}
+
+.restaurant-card img {
+  width: 100%;
+  max-height: 250px; /* Menjaga ukuran gambar seragam */
+  object-fit: cover; /* Agar gambar tetap proporsional dan tidak terdistorsi */
+  border-radius: 8px;
+}
+
+.like {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #db0000;
+  
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  border-radius: 50%;
+  border: 0;
+  
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Styling untuk halaman detail restoran */
+#detail-restoran {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#detail-restoran img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+#detail-restoran h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#detail-restoran #menus {
+  display: flex;
+  gap: 20px;
+}
+
+#menus ul {
+  padding: 10px;
+}
+
+#menus h4 {
+  margin: 0px;
+}
+
+#detail-restoran p {
+  font-size: 1.1em;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+#detail-restoran small {
+  font-size: 0.9em;
+  color: #888;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: rgb(30, 33, 33);
+}
+
+.skip-to-content {
+  position: absolute;
+  height: fit-content;
+  width: 100px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  color: rgb(234, 104, 95);
+}
+
+.skip-to-content:focus {
+  position: unset;
+}
+
+.customer-reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.review-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding-inline: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review-name {
+  font-size: 18px;
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.review-text {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.review-date {
+  font-size: 14px;
+  color: #777;
+}
+
+#review-form-container {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#review-form-container h3 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#review-form label {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#review-form input,
+#review-form textarea {
+  min-height: 44px;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#review-form input:focus,
+#review-form textarea:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+#review-form button {
+  padding: 12px;
+  background-color: #007BFF;
+  color: white;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#review-form button:hover {
+  background-color: #0056b3;
+}
+
+#review-form button:active {
+  background-color: #003f8f;
+}
+
+#review-form textarea {
+  min-height: 150px;
+}
+
+@media screen and (min-width: 600px) {
+  #drawer {
+    position: static; /* Ubah posisi menjadi static */
+    width: auto; /* Sesuaikan lebar agar sesuai dengan konten */
+    right: auto; /* Reset posisi kanan */
+    transform: none;
+    transition: none;
+    background-color: transparent;
+    display: block; /* Pastikan drawer tetap bisa ditampilkan */
+    margin-right: 10px;
+  }
+
+  #drawer ul {
+    display: flex;
+    gap: 6vw;
+    padding: 0;
+  }
+
+  #drawer a {
+    font-size: large;
+    color: white;
+  }
+
+  #hamburger {
+    display: none;
+  }
+
+  #daftar-restoran {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .restaurant-card img {
+    width: 90%;
+    height: 250px;
+  }
+
+  .restaurant-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+  #daftar-restoran {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #detail-restoran {
+    width: 70%;
+    padding: 40px;
+  }
+
+  #detail-restoran img {
+    max-height: 500px;
+  }
+}
